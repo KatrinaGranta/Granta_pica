@@ -1,5 +1,7 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.FileReader;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -30,6 +32,21 @@ public static void klientaInfo(){
 			JOptionPane.showMessageDialog(null, "Klume ierakstot faila!", "Klume!", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+public static void apskatit (){
+	
+		String teksts;
+		try{
+			failaNosaukums1 = JOptionPane.showInputDialog("pasutijums: ");
+			FileReader fr = new FileReader(failaNosaukums1);
+			BufferedReader lasa = new BufferedReader(fr);
+			while((teksts=lasa.readLine())!=null){
+				System.out.println(teksts);
+			}
+			lasa.close();
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "Klume ierakstot faila!", "Klume!", JOptionPane.ERROR_MESSAGE);
+		}
+	}
 
 public static void main(String[] args) {  
 
@@ -43,7 +60,7 @@ switch(picasIzvele) {
 	klientaInfo();
 	break;
 	case "2":
-
+	apskatit();
 	break;
 	case "3":
 	break;
